@@ -7,9 +7,20 @@ PROJECT_NAME = slackbot_boilerplate
 #-----------------------------------------------------------------------
 # Rules of Rules : Grouped rules that _doathing_
 #-----------------------------------------------------------------------
-# Auths to AWS ECR and builds image.
 
-build: auth-ecr build-dockerimage
+test: lint pytest
+
+#-----------------------------------------------------------------------
+# Testing & Linting
+#-----------------------------------------------------------------------
+
+lint:
+	pylint ${PROJECT_NAME} && \
+	mypy ${PROJECT_NAME};
+
+pytest:
+	export PYTHONPATH=${ROOT_DIR}:$$PYTHONPATH && \
+	py.test -n 4 --cov ${PROJECT_NAME} tests
 
 #-----------------------------------------------------------------------
 # Run Rules
@@ -24,10 +35,6 @@ run-docker-remote:
 #-----------------------------------------------------------------------
 # Docker Rules
 #-----------------------------------------------------------------------
-# Authenticate to Amazon AWS
-auth-ecr:
-	`aws ecr get-login --no-include-email`
-
 # Build Docker container
 build-dockerimage:
 	docker build -t ${PROJECT_NAME} .
