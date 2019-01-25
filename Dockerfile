@@ -19,4 +19,4 @@ RUN pipenv install --system --deploy
 
 # Start bot.
 # ---------------------------------------------------------------------- #
-CMD ["python", "run.py"]
+CMD ["python", "./app/run.py"]
