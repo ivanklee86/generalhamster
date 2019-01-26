@@ -1,7 +1,5 @@
 SHELL := /bin/bash
 ROOT_DIR := $(shell dirname $(realpath $(lastword $(MAKEFILE_LIST))))
-AWS_ACCESS_KEY := $(shell aws --profile default configure get aws_access_key_id)
-AWS_SECRET_ACCESS_KEY := $(shell aws --profile default configure get aws_secret_access_key)
 PROJECT_NAME = slackbot_boilerplate
 
 #-----------------------------------------------------------------------
@@ -15,12 +13,13 @@ test: lint pytest
 #-----------------------------------------------------------------------
 
 lint:
-	pylint ${PROJECT_NAME} && \
-	mypy ${PROJECT_NAME};
+    export PYTHONPATH=${ROOT_DIR}:$$PYTHONPATH && \
+	pylint app && \
+	mypy app;
 
 pytest:
 	export PYTHONPATH=${ROOT_DIR}:$$PYTHONPATH && \
-	py.test -n 4 --cov ${PROJECT_NAME} tests
+	py.test -n 4 --cov app tests
 
 #-----------------------------------------------------------------------
 # Run Rules

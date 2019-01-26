@@ -25,6 +25,8 @@ mkdocs = "*"
 
 [packages]
 slackbot = "*"
+slackclient = "*"
+python-dotenv = {extras = ["cli"],version = "*"}
 
 [requires]
 python_version = "3.7"

@@ -1,6 +1,6 @@
 import re
-from app.constants import VERSION
 from slackbot.bot import respond_to
+from app.constants import VERSION
 
 
 @respond_to('status', re.IGNORECASE)

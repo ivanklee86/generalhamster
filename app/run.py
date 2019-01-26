@@ -2,8 +2,9 @@ import re
 from slackbot.bot import respond_to
 from slackbot.bot import Bot
 
+
 @respond_to('help', re.IGNORECASE)
-def help(message):
+def help(message):  #pylint: disable=W0622
     message.reply("Default help message")
 
 
