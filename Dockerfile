@@ -1,6 +1,6 @@
 # Base image
 # ---------------------------------------------------------------------- #
-FROM python:3
+FROM python:3.7
 LABEL MAINTAINER="Ivan Lee <ivan@aaptiv.com>"
 
 # Copy app files into the docker image
