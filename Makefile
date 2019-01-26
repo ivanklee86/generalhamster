@@ -24,12 +24,9 @@ pytest:
 #-----------------------------------------------------------------------
 # Run Rules
 #-----------------------------------------------------------------------
-# Run bot in Docker for local testing
-run-docker-local:
+# Run bot in Docker
+run-docker:
 	docker run -it --name ${PROJECT_NAME} --rm  ${PROJECT_NAME}:latest
-
-run-docker-remote:
-	docker run -it -d --name ${PROJECT_NAME} --rm  ${PROJECT_NAME}:latest
 
 #-----------------------------------------------------------------------
 # Docker Rules

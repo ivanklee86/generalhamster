@@ -16,6 +16,7 @@ RUN pipenv install --system --deploy
 
 # Container settings
 # ---------------------------------------------------------------------- #
+ENV PYTHONPATH=/slackbot
 
 # Start bot.
 # ---------------------------------------------------------------------- #
