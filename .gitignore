@@ -100,3 +100,4 @@ ENV/
 assets
 results*
 .mypy_cache
+.pytest_cache

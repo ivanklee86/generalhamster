@@ -1,17 +1,10 @@
-import re
-from slackbot.bot import respond_to
-from slackbot.bot import Bot
+import os
+from aqeapis.ver1 import BaseLoginV1
+from aqeapis.ver1 import BaseIdsV1
+from aqeapis.ver1 import BaseCategoriesV1
+from aqeapis.ver2 import BaseCategoriesV2
+from aqeconfigs.dataclasses import UserInfo
+from dotenv import load_dotenv
 
 
-@respond_to('help', re.IGNORECASE)
-def help(message):  #pylint: disable=W0622
-    message.reply("Default help message")
 
-
-def main():
-    bot = Bot()
-    bot.run()
-
-
-if __name__ == "__main__":
-    main()

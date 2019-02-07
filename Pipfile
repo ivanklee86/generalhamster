@@ -3,6 +3,11 @@ name = "pypi"
 url = "https://pypi.org/simple"
 verify_ssl = true
 
+[[source]]
+url = "https://pypiserver.aapdev.com/simple/"
+verify_ssl = false
+name = "aaptivpypi"
+
 [dev-packages]
 # Pytest
 pytest = "*"
@@ -25,7 +30,10 @@ mkdocs = "*"
 
 [packages]
 slackclient = "*"
-python-dotenv = {extras = ["cli"],version = "*"}
+aqeconfigs = "*"
+aqeapis = "*"
+aaptivsecrets = "*"
+python-dotenv = "*"
 
 [requires]
 python_version = "3.7"
