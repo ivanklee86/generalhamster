@@ -24,7 +24,6 @@ twine = "*"
 mkdocs = "*"
 
 [packages]
-slackbot = "*"
 slackclient = "*"
 python-dotenv = {extras = ["cli"],version = "*"}
 
