@@ -1,5 +1,7 @@
 SHELL := /bin/bash
 ROOT_DIR := $(shell dirname $(realpath $(lastword $(MAKEFILE_LIST))))
+AWS_ACCESS_KEY := $(shell aws --profile default configure get aws_access_key_id)
+AWS_SECRET_ACCESS_KEY := $(shell aws --profile default configure get aws_secret_access_key)
 PROJECT_NAME = content-service-alert
 
 #-----------------------------------------------------------------------
@@ -34,6 +36,11 @@ run-docker:
 # Build Docker container
 build-dockerimage:
 	docker build -t ${PROJECT_NAME} .
+
+build-dockerimage-local:
+	docker build -t ${PROJECT_NAME} -f Dockerfile.local . \
+	--build-arg accesskey='${AWS_ACCESS_KEY}' \
+	--build-arg secretkey='${AWS_SECRET_ACCESS_KEY}'; \
 
 # Deletes stopped containers, unused volumes, and unused networks.
 clean-docker:

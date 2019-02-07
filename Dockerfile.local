@@ -18,6 +18,11 @@ RUN pipenv install --system --deploy
 # ---------------------------------------------------------------------- #
 ENV PYTHONPATH=/csa
 
+ARG accesskey
+ARG secretkey
+ENV AWS_ACCESS_KEY_ID=$accesskey
+ENV AWS_SECRET_ACCESS_KEY=$secretkey
+
 # Start bot.
 # ---------------------------------------------------------------------- #
 CMD ["python", "./app/run.py"]
