@@ -1,3 +1,4 @@
+import os
 from multiprocessing import Pool
 from dotenv import load_dotenv
 import aaptivsecrets
@@ -7,7 +8,7 @@ from app.helpers import login
 
 
 load_dotenv(override=True)
-CONFIGS = aaptivsecrets.get_env_var_dict_for_app('dev', "contentservicealert")
+CONFIGS = aaptivsecrets.get_env_var_dict_for_app(os.environ['AAPTIVSECRETS_ENV'], "contentservicealert")
 USER = login.get_user(CONFIGS['USER_EMAIL'], CONFIGS['USER_PASSWORD'])
 
 
