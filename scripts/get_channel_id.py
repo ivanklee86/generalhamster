@@ -1,10 +1,10 @@
 import os
-import aaptivsecrets
+from dotenv import load_dotenv
 from slackclient import SlackClient
 
 
-CONFIG = aaptivsecrets.get_env_var_dict_for_app('dev', "contentservicealert")
-slack_token = CONFIG["SLACK_TOKEN"]
+load_dotenv()
+slack_token = os.environ["API_TOKEN"]
 sc = SlackClient(slack_token)
 channels = sc.api_call("channels.list", exclude_archived=1)
 

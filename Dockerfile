@@ -5,9 +5,9 @@ LABEL MAINTAINER="Ivan Lee <ivan@aaptiv.com>"
 
 # Copy app files into the docker image
 # ---------------------------------------------------------------------- #
-RUN mkdir /csa
-WORKDIR /csa
-COPY . /csa
+RUN mkdir /slackbot
+WORKDIR /slackbot
+COPY . /slackbot
 
 # Install dependencies
 # ---------------------------------------------------------------------- #
@@ -16,7 +16,7 @@ RUN pipenv install --system --deploy
 
 # Container settings
 # ---------------------------------------------------------------------- #
-ENV PYTHONPATH=/csa
+ENV PYTHONPATH=/slackbot
 
 # Start bot.
 # ---------------------------------------------------------------------- #
